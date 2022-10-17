@@ -6,12 +6,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Update FLC Support List
-        run: /bin/bash ./scripts/find-sgx-flc.sh | tee ./FLC_SUPPORT_LIST.txt
+        run: /bin/bash ./scripts/find-sgx-flc.sh | tee ./SGX_FLC_SUPPORT_LIST.txt
       - name: Update File
         uses: test-room-7/action-update-file@v1
         if: github.ref_name == 'master'
         with:
-          file-path: FLC_SUPPORT_LIST.txt
+          file-path: SGX_FLC_SUPPORT_LIST.txt
           commit-msg: "Update FLC Support List"
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
